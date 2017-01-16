@@ -1,0 +1,56 @@
+﻿<Window x:Class="TowerDefense.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Tower Defense by Piskunov A., Martinov A. and Samokhvalov N." Height="670" Width="980" ResizeMode="NoResize">
+    <Grid Name="gridMain">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="800"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="600"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Canvas Name="canvasGame" ClipToBounds="True" MouseLeftButtonDown="canvasGame_MouseLeftButtonDown" >
+            
+        </Canvas>
+        <TextBlock Name="txtBlockGold" Grid.Row="1" Margin="5 5 0 5" FontSize="16" FontFamily="Times">Gold: -</TextBlock>
+        <TextBlock Name="txtBlockLives" Grid.Row="1" Margin="120 5 0 5" FontSize="16" FontFamily="Times">Lives: -</TextBlock>
+        <TextBlock Name="txtBlockWave" Grid.Row="1" Margin="200 5 0 5" FontSize="16" FontFamily="Times">Wave: -</TextBlock>
+        <Grid Name="gridRight" Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Button Name="btnStart" Margin="5" Click="btnStart_Click">Start</Button>
+            <StackPanel Margin="5" Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center">
+                <Button Name="btnAddTower" Width="40" Margin="0" Click="btnAddTower_Click" Content="+">
+                    <Button.ContextMenu>
+                        <ContextMenu HorizontalAlignment="Right">
+                            <MenuItem Name="menuItemAddCommonTower" Header="Common Tower" Click="menuItemAddCommonTower_Click" ToolTip="30 Gold" ToolTipService.InitialShowDelay="0">
+                                <MenuItem.Icon>
+                                    <Image Source="img/Towers/commonTower.png" Width="20" Height="20" Margin="-2 -2 0 0"></Image>
+                                </MenuItem.Icon>
+                            </MenuItem>
+                            <MenuItem Name="menuItemAddHardTower" Header="Hard Tower" Click="menuItemAddHardTower_Click" ToolTip="60 Gold" ToolTipService.InitialShowDelay="0">
+                                <MenuItem.Icon>
+                                    <Image Source="img/Towers/hardTower.png" Width="20" Height="20" Margin="-2 -2 0 0"></Image>
+                                </MenuItem.Icon>
+                            </MenuItem>
+                            <MenuItem Name="menuItemAddNapalmTower" Header="Napalm Tower" Click="menuItemAddNapalmTower_Click" ToolTip="50 Gold" ToolTipService.InitialShowDelay="0">
+                                <MenuItem.Icon>
+                                    <Image Source="img/Towers/napalmTower.png" Width="20" Height="20" Margin="-2 -2 0 0"></Image>
+                                </MenuItem.Icon>
+                            </MenuItem>
+                        </ContextMenu>
+                    </Button.ContextMenu>
+                </Button>
+                <Button Name="btnUpgradeTower" Width="40" Margin="5 0 0 0" Click="btnUpgradeTower_Click" ToolTipService.InitialShowDelay="0">|</Button>
+                <Button Name="btnSellTower" Width="40" Margin="5 0 0 0" Click="btnSellTower_Click" ToolTipService.InitialShowDelay="0">x</Button>
+            </StackPanel>
+            <TextBlock Name="txtBlockCellInfo" Margin="5" Grid.Row="2"/>
+        </Grid>
+    </Grid>
+</Window>
